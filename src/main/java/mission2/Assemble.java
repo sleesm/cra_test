@@ -6,10 +6,6 @@ class Assemble {
 
     private final CarManager carManager;
 
-    public Assemble() {
-        carManager = null;
-    }
-
     public Assemble(CarManager carManager) {
         this.carManager = carManager;
     }

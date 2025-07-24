@@ -155,6 +155,13 @@ class AssembleTest {
         assertThat(ret).isEqualTo(0);
     }
 
+    @Test
+    void option변경_num오류() {
+        int ret = question.changeInputToInt("n");
+
+        assertThat(ret).isEqualTo(WRONG_ANSWER_FORMAT);
+    }
+
     @ParameterizedTest
     @MethodSource("optionProvider")
     void 유효한Option(Question q) {
@@ -172,6 +179,16 @@ class AssembleTest {
 
         assertThat(ret).isEqualTo(false);
     }
+
+    @ParameterizedTest
+    @MethodSource("optionProvider")
+    void 유효하지않은Option_2(Question q) {
+        question = q;
+        boolean ret = question.isValidOption(6);
+
+        assertThat(ret).isEqualTo(false);
+    }
+
 
     @Test
     void 뒤로가기_Run_Test() {
